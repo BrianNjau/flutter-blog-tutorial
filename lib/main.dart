@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'view/all_pages.dart';
@@ -25,13 +26,14 @@ class MyApp extends StatelessWidget {
         title: title,
         themeMode: ThemeMode.light,
         theme: ThemeData(
-          primaryColor: Colors.pink.shade200,
-          scaffoldBackgroundColor: Colors.pink.shade600,
+          primaryColor: Colors.blue.shade200,
+          scaffoldBackgroundColor: Colors.blue.shade600,
           appBarTheme: const AppBarTheme(
             backgroundColor: Colors.transparent,
             elevation: 0,
           ),
         ),
-        home: const AllPages(),
+        home:AnimatedSplashScreen(splash: "assets/images/splash.png",
+            duration: 1500,backgroundColor: Color.fromARGB(255, 255, 255, 255), nextScreen: const AllPages()) ,
       );
 }

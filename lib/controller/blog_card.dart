@@ -6,8 +6,8 @@ import '../model/blog.dart';
 /// the display screen and it will appear
 /// based on the index of the list
 final shadeOfColors = [
-  Colors.pink.shade100,
-  Colors.purple.shade100,
+  Color.fromARGB(255, 255, 255, 255),
+  Color.fromARGB(255, 221, 220, 221),
   Colors.teal.shade200,
   Colors.orange.shade200,
   Colors.white10,
@@ -30,7 +30,7 @@ class BlogCard extends StatelessWidget {
     final minHeight = getMinHeight(index);
 
     return Card(
-      color: color,
+      color: Color.fromARGB(255, 246, 246, 248),
       child: Container(
         constraints: BoxConstraints(minHeight: minHeight),
         padding: const EdgeInsets.all(8),
@@ -40,13 +40,13 @@ class BlogCard extends StatelessWidget {
           children: [
             Text(
               time,
-              style: TextStyle(color: Colors.grey.shade700),
+              style: TextStyle(color: Color.fromARGB(255, 133, 129, 129)),
             ),
             const SizedBox(height: 4),
             Text(
               blog.title,
               style: const TextStyle(
-                color: Colors.black,
+                color: Color.fromARGB(255, 59, 72, 255),
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
@@ -57,7 +57,7 @@ class BlogCard extends StatelessWidget {
             Text(
               blog.description,
               style: const TextStyle(
-                color: Colors.blueAccent,
+                color: Color.fromARGB(255, 120, 165, 207),
                 fontSize: 16,
                 fontWeight: FontWeight.w300,
               ),

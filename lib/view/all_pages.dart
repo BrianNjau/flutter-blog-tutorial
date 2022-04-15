@@ -7,13 +7,17 @@ import 'detail.dart';
 import '/controller/blog_card.dart';
 
 class AllPages extends StatefulWidget {
-  const AllPages({Key? key}) : super(key: key);
-
+   const AllPages({Key? key}) : super(key: key);
+ 
   @override
   _AllPagesState createState() => _AllPagesState();
 }
 
 class _AllPagesState extends State<AllPages> {
+  Icon customIcon = const Icon(Icons.search);
+ Widget customSearchBar = const Text('My Feed',
+ style: TextStyle(color: Colors.white, fontSize: 36,)
+ );
   late List<Blog> blogs;
   bool isLoading = false;
 
@@ -42,25 +46,56 @@ class _AllPagesState extends State<AllPages> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'My Diary',
-            style: TextStyle(fontSize: 24),
-          ),
+          title: customSearchBar,
+           
+          actions: [
+            IconButton(onPressed: ()=>{ setState(() {
+    if (customIcon.icon == Icons.search) {
+     customIcon = const Icon(Icons.cancel);
+   customSearchBar = const ListTile(
+   leading: Icon(
+    Icons.search,
+    color: Colors.white,
+    size: 28,
+   ),
+   title: TextField(
+    decoration: InputDecoration(
+    hintText: 'search for blogs...',
+    hintStyle: TextStyle(
+     color: Colors.white,
+     fontSize: 18,
+     fontStyle: FontStyle.italic,
+    ),
+    border: InputBorder.none,
+    ),
+    style: TextStyle(
+    color: Colors.white,
+    ),
+   ),
+   );
+    } else {
+     customIcon = const Icon(Icons.search);
+     customSearchBar = const Text('My Feed');
+    }
+    })}, icon:customIcon)
+          ],
+          centerTitle:true
         ),
+        
         body: Center(
           child: isLoading
               ? const CircularProgressIndicator()
               : blogs.isEmpty
                   ? const Text(
-                      'No Entry in the beginning...',
-                      style: TextStyle(color: Colors.white, fontSize: 60),
+                      'No Blogs created',
+                      style: TextStyle(color: Colors.white, fontSize: 48,),
                     )
                   : buildingAllBlogs(),
         ),
         floatingActionButton: FloatingActionButton.extended(
-          tooltip: 'Write Diary...',
-          foregroundColor: Colors.white,
-          backgroundColor: Colors.pink.shade900,
+          tooltip: 'Create',
+          foregroundColor: Color.fromARGB(255, 0, 0, 0),
+          backgroundColor: Color.fromARGB(255, 255, 255, 255),
           onPressed: () async {
             await Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => const EditPage()),
@@ -69,9 +104,9 @@ class _AllPagesState extends State<AllPages> {
             refreshingAllBogs();
           },
           label: const Text(
-            'Write Diary...',
+            'Create',
             style: TextStyle(
-              fontSize: 30,
+              fontSize: 20,
             ),
           ),
         ),

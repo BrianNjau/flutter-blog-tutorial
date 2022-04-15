@@ -80,9 +80,9 @@ class _DetailPageState extends State<DetailPage> {
   Widget editButton() => ElevatedButton(
         style: ElevatedButton.styleFrom(
           onPrimary: Colors.white,
-          onSurface: Colors.pink.shade900,
+          onSurface: Colors.blue.shade900,
           shadowColor: Colors.grey.shade600,
-          primary: Colors.pink.shade900,
+          primary: Colors.blue.shade900,
         ),
         onPressed: () async {
           if (isLoading) return;
@@ -106,9 +106,9 @@ class _DetailPageState extends State<DetailPage> {
   Widget deleteButton() => ElevatedButton(
         style: ElevatedButton.styleFrom(
           onPrimary: Colors.white,
-          onSurface: Colors.pink.shade900,
+          onSurface: Colors.blue.shade900,
           shadowColor: Colors.grey.shade600,
-          primary: Colors.pink.shade900,
+          primary: Colors.blue.shade900,
         ),
         onPressed: () async {
           await BlogDatabaseHandler.instance.delete(widget.blogId);

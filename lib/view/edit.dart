@@ -54,9 +54,9 @@ class _EditPageState extends State<EditPage> {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           onPrimary: Colors.white,
-          onSurface: Colors.pink.shade900,
+          onSurface: Colors.blue.shade900,
           shadowColor: Colors.grey.shade600,
-          primary: isFormValid ? Colors.pink.shade900 : Colors.pink.shade900,
+          primary: isFormValid ? Colors.blue.shade900 : Colors.blue.shade900,
         ),
         onPressed: addOrUpdateBlog,
         child: const Text(
